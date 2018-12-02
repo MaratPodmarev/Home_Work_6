@@ -1,0 +1,42 @@
+try:
+    operator = input('Введите оператор: ')
+    if operator != '-' or '+' or '*' or '/':
+        operator = input('Введите оператор правильно: ')
+    num1 = int(input('Введите первое положительное число: '))
+    num2 = int(input('Введите второе положительное число: '))
+    
+    assert (num1 > 0), 'Необходимо ввести положительное число!'
+    assert (num2 >= 0), 'Необходимо ввести положительное число!'
+    
+    if operator == '-':
+        print('Ответ:', num1 - num2)
+    elif operator == '+':
+        print('Ответ:', num1 + num2)
+    elif operator == '*':
+        print('Ответ:', num1 * num2)
+    elif operator == '/':
+        try:
+            print('Ответ:', num1 / num2)
+        except ZeroDivisionError:
+            print('Ошибка деления на ноль!')
+    else:
+        print('Оператор не найден')
+except ValueError:
+    print('Ошибка ввода')
+    
+    
+    
+    
+    documents = [
+  {"type": "passport", "number": "2207 876234",},
+  {"type": "invoice", "number": "11-2", "name": "Геннадий Покемонов"},
+{"type": "insurance", "number": "10006", "name": "Аристарх Павлов"}]
+
+def get_name_doc(documents):
+  for document in documents:
+    try:
+      print(f'Владелец документа №{document["number"]} - {document["name"]}\n')
+    except KeyError:
+      print('Отсутствует поле документа или поле с именем владельца документа')
+
+get_name_doc(documents)
